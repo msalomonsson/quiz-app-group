@@ -1,8 +1,5 @@
-import Data from './data.js'
+import Data from "./data.js";
 
-(function app(){
-    
-    Data.getJokes()
-
-
-}())
+(function app() {
+  Data.getJokes();
+})();
