@@ -1,8 +1,5 @@
-import Data from './data.js'
+import Ui from './userInterFace.js'
 
 (function app(){
-    
-    Data.getJokes()
-
-
+    Ui.renderToDom()
 }())

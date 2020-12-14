@@ -1,12 +1,15 @@
 class Data {
 
-    static getJokes(){
-        var fetchData = fetch('https://opentdb.com/api.php?amount=10&difficulty=easy&type=multiple')
-        .then(res => res.json())
-        return fetchData
+    static async getJokes(){
+        let fetchData = await fetch('https://opentdb.com/api.php?amount=10&difficulty=easy&type=multiple')
+        const data = await fetchData.json();
+        
+        return data
     }
 
 
 }
+
+
 
 export default Data
