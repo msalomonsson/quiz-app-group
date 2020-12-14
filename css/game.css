@@ -1,0 +1,81 @@
+body {
+    color: #ffffff;
+  }
+  
+  .choice-container {
+    display: flex;
+    margin-bottom: 0.8rem;
+    width: 100%;
+    border-radius: 4px;
+    background-color: #dedede;
+    font-size: 2rem;
+    min-width: 80rem;
+    color: #000000;
+  }
+  
+  .choice-container:hover {
+    cursor: pointer;
+    transform: scale(1.02);
+    transform: translate(100ms);
+  }
+  
+  .choice-prefix {
+    padding: 2rem 2.5rem;
+    background-color: #000000;
+    color: #dedede;
+  }
+  
+  .choice-text {
+    padding: 1.5rem;
+    width: 100%;
+  }
+  
+  .hud-prefix {
+    color: #dedede;
+  }
+  
+  .correct {
+    background-color: rgb(7, 112, 7);
+  }
+  
+  .incorrect {
+    background-color: rgb(156, 13, 8);
+  }
+  
+  /* Heads up Display */
+  #hud {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .hud-prefix {
+    text-align: center;
+    font-size: 2rem;
+  }
+  
+  .hud-main-text {
+    text-align: center;
+  }
+  
+  /*  */
+  #progressBar {
+    width: 25rem;
+    height: 2rem;
+    border: 0.2rem solid rgb(197, 194, 194);
+    border-radius: 50px;
+    margin-top: 2rem;
+    overflow: hidden;
+  }
+  
+  #progressBarFull {
+    height: 100%;
+    background-color: rgb(197, 194, 194);
+    width: 0;
+  }
+  
+  @media screen and (max-width: 760px) {
+    .choice-container {
+      min-width: 40rem;
+    }
+  }
+  
