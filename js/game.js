@@ -27,7 +27,7 @@ class Game {
 
   startGame(questionObj){
 
-    this.questionText = document.querySelector('#question').innerHTML = questionObj.resugilts[this.currentQuiz].question
+    this.questionText = document.querySelector('#question').innerHTML = questionObj.results[this.currentQuiz].question
 
     this.aText.innerHTML = questionObj.results[this.currentQuiz].correct_answer;
     this.bText.innerHTML = questionObj.results[this.currentQuiz].incorrect_answers[0];
@@ -48,15 +48,15 @@ class Game {
         }%`;
 
         if(e.target.innerHTML === questionObj.results[(this.currentQuiz)-1].correct_answer){  
-            this.currentScore++
-            this.score.innerHTML = this.currentScore;
-            
-            e.target.classList.add('correct')
+          this.currentScore++
+          this.score.innerHTML = this.currentScore;
+          
+          e.target.classList.add('correct')
 
-            setTimeout(() => {
-                e.target.classList.remove('correct');
-                this.startGame(questionObj);
-            }, 1000);
+          setTimeout(() => {
+              e.target.classList.remove('correct');
+              this.startGame(questionObj);
+          }, 1000);
             
         }else{
             e.target.classList.add('incorrect')
@@ -67,7 +67,10 @@ class Game {
         }
 
         if(this.currentQuiz === this.maxQuestions){
-            setTimeout(() => {
+
+          localStorage.setItem('mostRecentScore', this.currentScore);
+            
+          setTimeout(() => {
               return window.location.assign('/end.html');
           }, 1000);
             
