@@ -1,81 +1,180 @@
-body {
-    color: #ffffff;
-  }
-  
-  .choice-container {
-    display: flex;
-    margin-bottom: 0.8rem;
-    width: 100%;
-    border-radius: 4px;
-    background-color: #dedede;
-    font-size: 2rem;
-    min-width: 80rem;
-    color: #000000;
-  }
-  
-  .choice-container:hover {
-    cursor: pointer;
-    transform: scale(1.02);
-    transform: translate(100ms);
-  }
-  
-  .choice-prefix {
-    padding: 2rem 2.5rem;
-    background-color: #000000;
-    color: #dedede;
-  }
-  
-  .choice-text {
-    padding: 1.5rem;
-    width: 100%;
-  }
-  
-  .hud-prefix {
-    color: #dedede;
-  }
-  
-  .correct {
-    background-color: rgb(7, 112, 7);
-  }
-  
-  .incorrect {
-    background-color: rgb(156, 13, 8);
-  }
-  
-  /* Heads up Display */
-  #hud {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .hud-prefix {
-    text-align: center;
-    font-size: 2rem;
-  }
-  
-  .hud-main-text {
-    text-align: center;
-  }
-  
-  /*  */
-  #progressBar {
-    width: 25rem;
-    height: 2rem;
-    border: 0.2rem solid rgb(197, 194, 194);
-    border-radius: 50px;
-    margin-top: 2rem;
-    overflow: hidden;
-  }
-  
-  #progressBarFull {
-    height: 100%;
-    background-color: rgb(197, 194, 194);
-    width: 0;
-  }
-  
-  @media screen and (max-width: 760px) {
-    .choice-container {
-      min-width: 40rem;
-    }
-  }
+/* ========== Main Container ========== */
+.main-container {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* ========== Game Container ========== */
+.game-container{
+  max-width: 100rem;
+  margin: 10rem auto 0;
+}
+
+/* ========== Heads of Display ========== */
+#hud {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4rem;
+}
+
+/* -------- Heads of Display -------- */
+.time-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* -------- Timer/Score -------- */
+.hud-prefix {
+  font-size: 1.8rem;
+  letter-spacing: 0.2rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.hud-main-text {
+  text-align: center;
+}
+
+/* -------- ProgressBar -------- */
+#progressBar {
+  width: 25rem;
+  height: 2.3rem;
+  margin-top: 2rem;
+  padding: .2rem;
+  border-radius: 5rem;
+  border: 0.2rem solid var(--primary-green-clr);
+  overflow: hidden;
+}
+
+#progressBarFull {
+  width: 20%;
+  height: 100%;
+  border-radius: 5rem;
+  background-color: var(--primary-green-clr);
+}
+
+/* ========== Category & question ========== */
+
+.category{
+  margin-bottom: 3rem;
+  font-size: 1.6rem;
+  letter-spacing: .4rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.ques{
+  width: 70%;
+  margin: 0 auto 5rem;
+  text-align: center;
+}
+
+/* ========== Choice Container ========== */
+
+.choice-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin: 2rem;
+  padding: 2rem;
+  font-size: 2rem;
+  border-radius: 1rem;
+  border: 0.1rem solid var(--primary-green-clr);
+  box-shadow: 2px 2px 10px var(--shadow), inset 2px 2px 5px var(--primary-green-clr);
+  transition: 0.3s;
+}
+
+.choice-container:hover {
+  cursor: pointer;
+  transform: scale(1.03);
+  transform: translate(100ms);
+}
+
+.choice-top{
+  display: flex;
+}
+
+.chioce-bottom{
+  display: flex; 
+}
+
+.choice-prefix {
+  margin-right: 2rem;
+  padding: 1rem 1.5rem;
+  border-radius: 50%;
+  box-shadow: 2px 2px 5px var(--shadow), inset 2px 2px 5px var(--primary-green-clr);
+}
+
+.choice-text {
+  letter-spacing: 0.1rem;
+}
+
+/* ----- Right or wrong response ----- */
+
+.correct {
+  background-color: rgb(7, 112, 7);
+}
+
+.incorrect {
+  background-color: rgb(156, 13, 8);
+}
+
+/* ===== Before & After effects on alternative boxes ===== */
+
+/* ----- Before triangle ----- */
+.A::before, .B::before, .C::before, .D::before{
+  content: "";
+  position: absolute;
+  top: 2.6rem;
+  border-top: 1.5rem solid transparent;
+  border-bottom: 1.5rem solid transparent;
+}
+
+.A::before, .C::before{
+  right: 100%;
+  border-right: 5rem solid var(--primary-green-clr);
+} 
+
+.B::before, .D::before{
+  left: 100%;
+  border-left: 5rem solid var(--primary-green-clr);
+} 
+
+/* ----- After line ----- */
+.A::after, .B::after, .C::after, .D::after{
+  content: "";
+  position: absolute;
+  top: 4rem;
+  width: 100%;
+  height: 0.2rem;
+}
+
+.A::after{
+  right: 110%;
+  background: linear-gradient(90deg, rgba(20,214,154,0) 57%, var(--primary-green-clr) 100%);
+}
+
+.B::after{
+  left: 110%;
+  background: linear-gradient(260deg, rgba(20,214,154,0) 57%, var(--primary-green-clr) 100%);
+}
+
+.C::after{
+  right: 110%;
+  background: linear-gradient(90deg, rgba(20,214,154,0) 37%, var(--primary-green-clr) 100%);
+} 
+
+.D::after{
+  left: 110%;
+  background: linear-gradient(260deg, rgba(20,214,154,0) 37%, var(--primary-green-clr) 100%);
+}
+
+
+
+
+
+
   

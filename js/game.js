@@ -1,6 +1,8 @@
 import Data from './data.js'
 import data from './data.js'
 import Ui from './userInterFace.js'
+import {showTimer} from './timer.js'
+
 
 class Game {
   constructor(){
@@ -11,7 +13,7 @@ class Game {
     this.cText = document.querySelector('.c-text')
     this.dText = document.querySelector('.d-text')
 
-    this.choises = Array.from(document.getElementsByClassName('choice-text'));
+    this.choises = Array.from(document.getElementsByClassName('choice-container'));
 
     this.score = document.querySelector("#score");
     this.progressText = document.querySelector("#progressText");
@@ -21,13 +23,14 @@ class Game {
     
     this.currentQuiz = 0;
     this.currentScore = 0;
-    this.maxQuestions = 10;
+    this.maxQuestions = 5;
   }
   
 
   startGame(questionObj){
-
-    this.questionText = document.querySelector('#question').innerHTML = questionObj.results[this.currentQuiz].question
+    showTimer() 
+    
+    this.questionText.innerHTML = questionObj.results[this.currentQuiz].question
 
     this.aText.innerHTML = questionObj.results[this.currentQuiz].correct_answer;
     this.bText.innerHTML = questionObj.results[this.currentQuiz].incorrect_answers[0];
@@ -41,13 +44,17 @@ class Game {
     this.choises.forEach((choice) => {
       choice.addEventListener('click', (e) => {
         this.currentQuiz++  
-        
+
+        console.log(e.target.innerHTML)
+
         this.progressText.innerText = `Question ${this.currentQuiz}/${this.maxQuestions}`;
         this.progressBarFull.style.width = `${
           (this.currentQuiz / this.maxQuestions) * 100
         }%`;
 
-        if(e.target.innerHTML === questionObj.results[(this.currentQuiz)-1].correct_answer){  
+
+        if(e.target.lastElementChild.innerHTML === questionObj.results[(this.currentQuiz)-1].correct_answer || e.target.innerHTML === questionObj.results[(this.currentQuiz)-1].correct_answer){ 
+
           this.currentScore++
           this.score.innerHTML = this.currentScore;
           

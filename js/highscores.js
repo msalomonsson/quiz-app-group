@@ -1,11 +1,24 @@
-const highScoresList = document.getElementById("highScoresList");
+const highScoresList = document.querySelector(".score-place");
 const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
 
-console.log(highScores)
+
+const removeLocalBtn = document.querySelector('.btnDeleteLocal').addEventListener('click', (e)=>{
+    highScoresList.innerHTML = '';
+    localStorage.clear()
+} )
+
+
+
 
 highScoresList.innerHTML = highScores
 .map( score => {
-    return `<li class="high-score>${score.name} ${score.score}</li>`;
+    return `<li class="place-name">${score.name}<span>${score.score}</span></li>`;
 })
 .join("");
+
+
+
+
+
+
 

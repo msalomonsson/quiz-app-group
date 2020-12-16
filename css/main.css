@@ -1,13 +1,56 @@
 :root {
-    background-color: rgb(29, 26, 26);
-    font-size: 62.5%;
-  }
+  --primary-green-clr: #14d69a;
+  --text-clr: #e6e6e6;
+  --shadow: #152522;
+  font-size: 62.5%;
+}
   
-  *,
-  *::before,
-   *::after{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  }
+*,
+*::before,
+*::after{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text-clr);
+  background: linear-gradient(180deg, rgba(0,0,0,1) 50%, rgba(41,43,45,1) 80%, rgba(111,118,120,1) 100%);
+}
+
+
+
+h1 {
+  font-size: 5.4rem;
+}
+
+h2 {
+  font-size: 4rem;
+  font-weight: 500;
+}
+
+
+/* ========== Button Utilitis ========== */
+
+.btn {
+  display: block;
+  width: 30rem;
+  margin: 1rem;
+  padding: 2rem 0;
+  font-size: 2.4rem;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: .4rem;
+  border: 0.1rem solid var(--primary-green-clr);
+  box-shadow: 2px 2px 10px var(--shadow), inset 2px 2px 5px var(--primary-green-clr);
+  color: var(--text-clr);
+  transition: 0.3s;
+}
+
+.btn:hover {
+  cursor: pointer;
+  transition: transform 150ms;
+  transform: scale(1.03);
+}
