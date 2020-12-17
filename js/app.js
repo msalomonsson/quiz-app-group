@@ -1,29 +1,18 @@
-import Data from './data.js'
+/* Importing classes */
+
 import Game from './game.js'
-import Ui from './userInterFace.js'
-
-
-
 
 (function app(){
-    console.log('working')
     
-    let levelValue = 'hard';
+    // const easyBtn = document.querySelector('.link-item-easy')
+    // easyBtn.addEventListener('click',(e) => {
+    //     window.location.assign('game.html')
+    //     Game.game('easy')
+    // }) 
 
+    Game.game('hard')
 
-    Data.getJokes(levelValue)
-    .then(data => {
-        const game = new Game;
-        
-        game.startGame(data) 
-        game.nextQuestion(data)
-    })
-
-
-   
-
-
-
+    /* Dropdown */
     const playBtn = document.querySelector('.play-btn');
     const dropdownUl = document.querySelector('.dropdown')
 
@@ -37,7 +26,7 @@ import Ui from './userInterFace.js'
         }
     }
 
-
+    
 }())
 
 

@@ -1,59 +1,16 @@
-@font-face {
-  font-family: neon;
-  src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/707108/neon.ttf);
-}
-
 .home-container{
   width: 100vw;
   height: 100vh;
-  overflow: hidden;
   background: #000;
 }
 
 #home{
   max-width: 100rem;
-  margin: 10rem auto 0;
+  margin: auto ;
+  padding: 10rem 0 5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-/* ========== Home Logo ========== */
-
-.logo-container {
-  display: table-cell;
-  text-align: center;
-  vertical-align: middle;
-  margin-bottom: 8rem;
-}
-
-.quik {
-  font-family: neon;
-  color: #FFF;
-  font-size: 7vw;
-  line-height: 9vw;
-  text-shadow: 0 0 3vw var(--primary-green-clr);
-  animation: neon 2s ease infinite;
-}
-
-@keyframes neon {
-  0%,
-  100% {
-    text-shadow: 0 0 1vw var(--primary-green-clr), 0 0 3vw var(--primary-green-clr), 0 0 10vw var(--primary-green-clr), 0 0 10vw var(--primary-green-clr), 0 0 .4vw var(--primary-green-clr), .5vw .5vw .1vw #806914;
-    color: #FED128;
-  }
-  50% {
-    text-shadow: 0 0 .5vw var(--shadow), 0 0 1.5vw var(--shadow), 0 0 5vw var(--shadow), 0 0 5vw var(--shadow), 0 0 .2vw var(--shadow), .5vw .5vw .1vw #40340A;
-    color: #806914;
-  }
-}
-
-.quiz {
-  font-family: neon;
-  color: var(--primary-green-clr);
-  font-size: 7vw;
-  line-height: 5vw;
-  text-shadow: 0 0 3vw var(--primary-green-clr);;
 }
 
 /* ========== Play Btn ========== */
@@ -150,4 +107,26 @@ a{
 .link-item:hover{
   text-shadow: 4px 4px 7px var(--primary-green-clr);
  
+}
+
+@media screen and (max-width: 420px){
+  #home{
+    padding: 5rem 0 5rem;
+  }
+
+  .play-btn:hover::before{
+    display: none;
+  }
+  
+  .play-btn:hover::after{
+    display: none;
+  }
+
+  .scores-btn:hover::before{
+    display: none;
+  }
+  
+  .scores-btn:hover::after{
+    display: none;
+  }
 }

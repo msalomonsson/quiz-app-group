@@ -1,39 +1,60 @@
-.container{
-    background-color: rgb(29, 26, 26);
-    color: #ffffff;
-    min-height: 100vh;
+.end-container{
+    width: 100vw;
+    height: 100vh;
+    background: #000;
 }
 
-#finalScore {
-    width: 100%;
-    min-height: 20%;
+.end-wrapper{
+    max-width: 100rem;
+    margin: auto ;
+    padding: 10rem 0 5rem;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    font-size: 5rem;
 }
 
-form{
+.logo{
+    margin-bottom: 5rem;
+}
+
+.final-score-wrapper{
+    width: 25rem;
     display: flex;
-    justify-content: center;
-}
-
-#username{
-    width: 10%;
-    min-height: 2rem;
-}
-
-.link {
-    min-height: 5%;
-    display: flex;
-    justify-content: space-around;
     align-items: center;
-    margin-left: 44%;
-    margin-right: 44%;
-    font-size: 1.25rem;
-    
+    justify-content: space-between;
+    text-transform: uppercase;
+    line-height: 3rem;
+    margin-bottom: 5rem;
 }
 
-a{
-    color: #ffffff;
+#finalScore{
+    font-size: 10rem;
+    text-shadow: -1px 0 var(--primary-green-clr), 0 1px var(--primary-green-clr), 1px 0 var(--primary-green-clr), 0 -1px var(--primary-green-clr);
+}
+
+input{
+    width: 30rem;
+    margin: 1rem 1rem 2rem;
+    padding: 1rem 0;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid var(--primary-green-clr);
+    outline: none;
+    color: var(--text-clr);
+    font-size: 2.7rem;
+    text-align: center;
+}
+
+input::placeholder{
+    text-align: center;
+}
+
+.save-btn{
+    background-color: #000;
+}
+
+@media screen and (max-width: 800px){
+    .end-wrapper{
+        padding: 5rem 0 5rem;
+    }
 }

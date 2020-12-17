@@ -1,13 +1,13 @@
 .highscore-container{
   width: 100vw;
   height: 100vh;
-  overflow: hidden;
   background: #000;
 }
 
 .highscore-wrapper{
   max-width: 100rem;
-  margin: 10rem auto 0;
+  margin: auto ;
+  padding: 10rem 0 5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,6 +17,7 @@
   font-size: 10rem;
   animation: neon 2s ease infinite;
 }
+
 @keyframes neon {
   0%,
   100% {
@@ -28,12 +29,13 @@
 }
 
 .high-title{
+
   text-transform: uppercase;
   padding: 1rem 0 2rem;
 }
 
 .score-place{
-  width: 30%;
+  width: 30rem;
   font-size: 2rem;
   margin-bottom: 3rem;
   list-style: none;
@@ -42,7 +44,14 @@
 .place-name{
   width: 100%;
   padding: 2rem 0 1rem;
+  font-size: 2.5rem;
   display: flex;
   justify-content: space-between; 
   border-bottom: 0.1rem solid var(--primary-green-clr);
 } 
+
+@media screen and (max-width: 420px){
+  .highscore-wrapper{
+    padding: 5rem 0 5rem;
+  }
+}
