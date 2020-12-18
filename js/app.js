@@ -1,30 +1,40 @@
 /* Importing classes */
-
 import Game from './game.js'
+import Ui from './userInterFace.js'
+import highScore from './highscores.js'
+import End from './end.js'
 
 (function app(){
     
-    // const easyBtn = document.querySelector('.link-item-easy')
-    // easyBtn.addEventListener('click',(e) => {
-    //     window.location.assign('game.html')
-    //     Game.game('easy')
-    // }) 
 
-    Game.game('hard')
+    const linkItems = document.querySelectorAll('.link-item');
+    linkItems.forEach((link) => {
+        link.addEventListener('click', (e) => {
+            
+            if(e.target.classList.contains('easy-item')){
+                Ui.StartPage('none')
+                Ui.gamePage('block')
+                Game.game('easy')
+            }
 
-    /* Dropdown */
-    const playBtn = document.querySelector('.play-btn');
-    const dropdownUl = document.querySelector('.dropdown')
+            if(e.target.classList.contains('medium-item')){
+                console.log('medium working')
+                Ui.StartPage('none')
+                Ui.gamePage('block')
+                Game.game('medium')
+            }
 
-    playBtn.addEventListener('click', dropdownMenu);
-    function dropdownMenu(event) {
-
-        if (dropdownUl.style.display == 'block') {
-            dropdownUl.style.display = 'none';
-        } else {
-            dropdownUl.style.display = 'block';
-        }
-    }
+            if(e.target.classList.contains('hard-item')){
+                console.log('hard working')
+                Ui.StartPage('none')
+                Ui.gamePage('block')
+                Game.game('hard')
+            }
+        })
+    })
+    Ui.dropDownMenu()
+    Ui.showHighScoreBtn()
+    
 
     
 }())

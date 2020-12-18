@@ -1,36 +1,49 @@
-const username = document.getElementById("username");
-const saveScoreBtn = document.getElementById("saveScoreBtn");
-const finalScore = document.getElementById("finalScore");
-const mostRecentScore = localStorage.getItem("mostRecentScore")
+import Game from './game.js'
+import Ui from './userInterFace.js'
+import highScore from './highscores.js'
+class End {
+    
+    static selectors = {
+        username: document.getElementById("username"),
+        saveScoreBtn: document.getElementById("saveScoreBtn"),
+        finalScore: document.getElementById("finalScore"),
+        mostRecentScore: localStorage.getItem("mostRecentScore")
+    }
 
-const highScores = JSON.parse(localStorage.getItem("highScores")) || [] ;
+    static endFunction(){
+        console.log(localStorage)
+        this.selectors.finalScore.innerText = Game.state.score
 
-const MAX_HIGH_SCORE = 10;
-// console.log(highScores);
+        this.selectors.username.addEventListener('keyup', () => {
+            this.selectors.saveScoreBtn.disabled = !this.selectors.username.value
+        })
 
-finalScore.innerText = mostRecentScore;
+        this.selectors.saveScoreBtn.addEventListener('click',(e)=>{
+            e.preventDefault();
+            console.log('working')
+            let highscore = JSON.parse(localStorage.getItem("highScores")) || []
+            
+            const score = {
+                score: this.selectors.mostRecentScore,
+                name: this.selectors.username.value
+            };
+            
+            highscore.push(score);
 
-username.addEventListener("keyup", () => {
-    saveScoreBtn.disabled = !username.value;
-});
+            highscore.sort((a, b) => b.score - a.score);
+            highscore.splice(5)
 
-function saveHighScore (e){
-    e.preventDefault();
+            localStorage.setItem("highScores", JSON.stringify(highscore));
+            highScore.setHighScore();
+            Ui.Endpage('none')
+            Ui.highscore('block')
+        })
 
-    const score = {
-        score: mostRecentScore,
-        name: username.value
-    };
+        
 
-    highScores.push(score);
-
-    highScores.sort((a, b) => b.score - a.score);
-    highScores.splice(5)
-
-    localStorage.setItem("highScores", JSON.stringify(highScores));
-    window.location.assign("/highscore.html");
-
-    console.log(highScores)
+        Ui.showHomeBtn()
+    }
 }
 
 
+export default End

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+    <link rel="stylesheet" href="/css/main.css"/>
+    <link rel="stylesheet" href="/css/start.css"/>
+    <link rel="stylesheet" href="/css/game.css"/>
+    <link rel="stylesheet" href="/css/game.css"/>
+    <link rel="stylesheet" href="/css/end.css"/>
+    <link rel="stylesheet" href="/css/highscore.css"/>
+    <title>Quiz Game</title>
+</head>
+<body>
+
+    <div class="home-container">
+        <div id="home">
+          <!--------------- Home Logo --------------->
+          <div class="logo-container">
+            <div class="quik">Quik</div>
+            <div class="quiz">Quiz</div>
+          </div>
+          <!--------------- Play Btn --------------->
+          <a href="#" class="btn play-btn">Play<i class="fas fa-play"></i></a>
+          <!-------- Dropdown -------->
+          <ul class="dropdown">
+            <a class="link-item link-item-easy">
+              <li class="level-items easy-item">Easy</li>
+            </a>
+            <a class="link-item">
+              <li class="level-items medium-item">Medium</li>
+            </a>
+            <a class="link-item">
+              <li class="level-items hard-item">Hard</li>
+            </a>
+          </ul>
+          <!--------------- Score Btn --------------->
+          <a class="btn scores-btn" id="highscore-btn">High Scores<i class="fas fa-crown"></i></a>
+        </div>
+    </div>
+
+    <div class="main-container">
+
+        <!--------------- Game Container --------------->
+        <div id="game" class="game-container">
+
+        <!--------------- Heads Up Display --------------->
+        <div id="hud">
+            <!------ Timer ------>
+            <div class="time-container">
+            <p class="hud-prefix">Timer</p>
+            <h1 class="timer">10</h1>
+            </div>
+            <!------ ProgressBar ------>
+            <div class="hud-item-left">
+            <p id="progressText" class="hud-prefix">Question </p>
+            <div id="progressBar">
+                <div id="progressBarFull"></div>
+            </div>
+            </div>
+            <!------ Score ------>
+            <div class="hud-right-item">
+            <p class="hud-prefix">Score</p>
+            <h1 class="hud-main-text scoreNumber" id="score">0</h1>
+            </div>
+        </div>
+
+        <!--------------- Category & question --------------->
+        <p class="category">Movies</p>
+        <div class="question-container">
+            <!-- Edit -->
+            <h2 class="ques" id="question"></h2>
+        </div>
+        <!--------------- A & B Alternatives --------------->
+        <div class="choice-top">
+            <div class="choice-container A">
+            <p class="choice-prefix">A</p>
+            <p class="choice-text a-text" data-number="1">The Thing</p>
+            </div>
+            <div class="choice-container B">
+            <p class="choice-prefix">B</p>
+            <p class="choice-text b-text" data-number="2">Carrie</p>
+            </div>
+        </div>
+        <!--------------- C & D Alternatives --------------->
+        <div class="chioce-bottom">
+            <div class="choice-container C">
+            <p class="choice-prefix">C</p>
+            <p class="choice-text c-text" data-number="3">Misery</p>
+            </div>
+            <div class="choice-container D">
+            <p class="choice-prefix">D</p>
+            <p class="choice-text d-text" data-number="4">The Green Mile</p>
+            </div>
+        </div>
+
+        </div> <!-- End of game container -->
+    </div> 
+    
+    <div class="end-container">
+        <div id="end" class="end-wrapper">
+          <div class="logo-container logo">
+            <div class="quik">Game</div>
+            <div class="quiz">Over</div>
+          </div>
+          <div class="final-score-wrapper">
+            <div class="score-heading">
+              <h3 class="end-score-title">Save</h3>
+              <h3 class="end-score-title">your </h3>
+              <h3 class="end-score-title">score</h3>
+            </div>
+            <h1 id="finalScore">4</h1>
+          </div>
+    
+    
+          <form>
+            <input type="text" name="username" id="username" placeholder="Enter your name" />
+            <button type="submit" class="btn save-btn" id="saveScoreBtn">
+              Save
+            </button>
+          </form>
+          <a class="btn btnGoHome">Home</a>
+        </div>
+    </div>
+
+    <div class="highscore-container">
+        <div class="highscore-wrapper">
+            <i class="fas fa-crown bigCrown"></i>
+            <h1 class="high-title">Highscore</h1>
+            <ol class="score-place">
+                <li class="place-name">Emelie<span>200</span></li>
+                <li class="place-name">Christoffer<span>150</span></li>
+                <li class="place-name">Calle<span>100</span></li>
+            </ol>
+            <div class="btn-get-back">
+                <a class="btn btnGoHomeFromHigh">Home</a>
+            </div>
+            <div class="btn-delete-score">
+                <a class="btn btnDeleteLocal">Clear score</a>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="/js/app.js"></script>
+</body>
+</html>

@@ -4,6 +4,7 @@
   height: 100vh;
   overflow-x: hidden;
   background: linear-gradient(180deg, rgba(0,0,0,1) 50%, rgba(41,43,45,1) 80%, rgba(111,118,120,1) 100%);
+  display: none;
 }
 
 /* ========== Game Container ========== */

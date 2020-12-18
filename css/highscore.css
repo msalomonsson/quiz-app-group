@@ -2,6 +2,7 @@
   width: 100vw;
   height: 100vh;
   background: #000;
+  display: none;
 }
 
 .highscore-wrapper{
@@ -13,7 +14,7 @@
   align-items: center;
 }
 
-.fa-crown{
+.bigCrown{
   font-size: 10rem;
   animation: neon 2s ease infinite;
 }
