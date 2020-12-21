@@ -36,7 +36,7 @@ class Ui {
             console.log('homework')
             Ui.Endpage('none')
             Ui.StartPage('block')
-            // location.reload();
+            location.reload();
         })
     }
 
@@ -46,7 +46,7 @@ class Ui {
             Ui.highscore('none')
             Ui.StartPage('block')
             Game.resetState()
-            // location.reload();
+            location.reload();
         })
     }
 
@@ -62,7 +62,7 @@ class Ui {
         } else {
             dropdownUl.style.display = 'block';
         }
-    }
+        }
     }
 
 }   

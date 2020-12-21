@@ -35,7 +35,7 @@ class Game {
               console.log(questionsFormatted.correctAnswer)
               return questionsFormatted;
           });
-          
+          console.log(this.state.questions)
           this.startGame()
       })
   }
@@ -118,7 +118,7 @@ class Game {
     choicesContainers.forEach((choiceContainer) => {
         choiceContainer.addEventListener('click', (e) => {
           this.state.currentquestion++
-          console.log(this.state.currentquestion)
+          
           this.selectors.progressText.innerText = `Question ${this.state.currentquestion}/${this.state.maxQuestions}`;
           
           this.selectors.progressBarFull.style.width = `${
@@ -139,15 +139,7 @@ class Game {
           if(this.state.currentquestion === this.state.maxQuestions){
 
             localStorage.setItem('mostRecentScore', this.state.score);
-            /* reset sttate */
-            this.state = {
-              currentquestion: 0,
-              questions: [],
-              score: 0,
-              maxQuestions: 3,
-              rightAnswerString: '',
-            }
-            /* done resseting */
+            
             End.endFunction()
             setTimeout(() => {
               Ui.gamePage('none')
