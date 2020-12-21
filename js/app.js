@@ -34,9 +34,7 @@ import End from './end.js'
     })
     Ui.dropDownMenu()
     Ui.showHighScoreBtn()
-    
-
-    
+     
 }())
 
 

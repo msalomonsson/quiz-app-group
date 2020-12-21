@@ -45,7 +45,6 @@ class Ui {
             console.log('homework')
             Ui.highscore('none')
             Ui.StartPage('block')
-            Game.resetState()
             location.reload();
         })
     }

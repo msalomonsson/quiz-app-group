@@ -3,10 +3,10 @@ import Ui from './userInterFace.js'
 class highScore {
 
     static setHighScore() {
-    
+        
         const highScoresList = document.querySelector(".score-place");
         const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
-  
+        console.log(highScores)
         const removeLocalBtn = document.querySelector(".btnDeleteLocal");
         removeLocalBtn.addEventListener("click", (e) => {
             highScoresList.innerHTML = "";

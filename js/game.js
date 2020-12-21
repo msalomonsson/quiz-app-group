@@ -8,7 +8,7 @@ class Game {
     currentquestion: 0,
     questions: [],
     score: 0,
-    maxQuestions: 3,
+    maxQuestions: 10,
     rightAnswerString: '',
   }
 
@@ -23,7 +23,7 @@ class Game {
   }
   
   static game(level){
-      fetch(`https://opentdb.com/api.php?amount=3&difficulty=${level}&type=multiple`).then(res => res.json()).then((data) => {
+      fetch(`https://opentdb.com/api.php?amount=10&difficulty=${level}&type=multiple`).then(res => res.json()).then((data) => {
           this.state.questions = data.results.map((data) => {
               const questionsFormatted = {
                   question: data.question.replaceAll('&quot;', '"').replaceAll('&#039;', "'"). replaceAll('&amp;', '&'),
@@ -61,7 +61,7 @@ class Game {
     this.loadCategory(this.state.currentquestion)
     this.loadQuestion(this.state.currentquestion)
     this.loadAnswers(this.state.currentquestion)
-    this.timer(6000)
+    this.timer(60)
     this.eventChangeQuestion();
   }
 
@@ -78,9 +78,12 @@ class Game {
       const choices = this.selectors.choicesText;
       const random = Math.floor(Math.random() * 4);
       const wrongChoices = Array.from(choices);
+
       choices[random].textContent = this.state.questions[currentIndex].correctAnswer
       wrongChoices.splice(random, 1)
+
       this.state.rightAnswerString = this.state.questions[currentIndex].correctAnswer
+      
       for(let i = 0; i < wrongChoices.length; i++){
         wrongChoices[i].textContent = this.state.questions[currentIndex].wrongAnswers[i];
       }

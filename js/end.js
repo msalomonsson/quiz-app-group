@@ -11,7 +11,7 @@ class End {
     }
 
     static endFunction(){
-        console.log(localStorage)
+        
         this.selectors.finalScore.innerText = Game.state.score
 
         this.selectors.username.addEventListener('keyup', () => {
@@ -24,7 +24,7 @@ class End {
             let highscore = JSON.parse(localStorage.getItem("highScores")) || []
             
             const score = {
-                score: this.selectors.mostRecentScore,
+                score: Game.state.score,
                 name: this.selectors.username.value
             };
             
@@ -38,8 +38,6 @@ class End {
             Ui.Endpage('none')
             Ui.highscore('block')
         })
-
-        
 
         Ui.showHomeBtn()
     }
